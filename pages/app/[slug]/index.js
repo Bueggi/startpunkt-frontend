@@ -70,23 +70,10 @@ const CoursePage = ({ courseRequested }) => {
     )
 }
 
-export async function getStaticPaths() {
-    const res = await fetch(`${API_URL}/courses`)
-    const data = await res.json()
-
-    const paths = data.map((el, i) => ({
-        params: { slug: el.slug }
-    }))
 
 
-    return {
-        paths,
-        fallback: false
-    }
-}
-
-
-export async function getStaticProps({ params: { slug } }) {
+export async function getServerSideProps({ params: { slug }, req }) {
+    console.log(req.headers.cookie)
     const conditions = qs.stringify({
         _where: {
             _and: [
@@ -101,8 +88,7 @@ export async function getStaticProps({ params: { slug } }) {
     return {
         props: {
             courseRequested: course[0],
-        },
-        revalidate: 1
+        }
     }
 }
 

@@ -1,4 +1,5 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useState, useContext } from 'react'
+import AuthContext from '@/context/authContext'
 import { Dialog, Menu, Transition } from '@headlessui/react'
 import {
     CogIcon,
@@ -34,6 +35,8 @@ function classNames(...classes) {
 export default function DashboardLayout({ children }) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const [mobileCourseMenu, setMobileCourseMenu] = useState([])
+
+    const { user, logout } = useContext(AuthContext)
 
     return (
         <div className="h-screen bg-gray-50 flex overflow-hidden">
