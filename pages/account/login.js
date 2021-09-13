@@ -1,11 +1,19 @@
 
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import AuthContext from '@/context/authContext'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-const register = () => {
+const login = () => {
     const { login, error } = useContext(AuthContext)
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+
+    useEffect(() => {
+        if (error) {
+            toast.error(error)
+        }
+    })
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -14,6 +22,7 @@ const register = () => {
 
     return (
         <div>
+            <ToastContainer />
             <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
                 <div className="sm:mx-auto sm:w-full sm:max-w-md">
                     <img
@@ -105,4 +114,4 @@ const register = () => {
     )
 }
 
-export default register
+export default login

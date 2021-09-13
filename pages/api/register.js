@@ -2,10 +2,11 @@ import cookie from 'cookie'
 import { API_URL } from '@/config/index'
 
 export default async (req, res) => {
+    console.log('API URL', API_URL)
     if (req.method === 'POST') {
         const { username, email, password } = req.body
 
-        const strapiRes = await fetch(`${API_URL}/auth/local/register`, {
+        const strapiRes = await fetch(`https://secure-escarpment-39746.herokuapp.com/auth/local/register`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -13,7 +14,7 @@ export default async (req, res) => {
             body: JSON.stringify({
                 username,
                 email,
-                password,
+                password
             }),
         })
 

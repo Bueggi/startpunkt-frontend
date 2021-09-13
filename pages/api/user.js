@@ -10,7 +10,7 @@ export default async (req, res) => {
 
         const { token } = cookie.parse(req.headers.cookie)
 
-        const strapiRes = await fetch(`${API_URL}/users/me`,
+        const strapiRes = await fetch(`https://secure-escarpment-39746.herokuapp.com/users/me`,
             {
                 method: 'GET',
                 headers: {

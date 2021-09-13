@@ -13,7 +13,10 @@ export const CourseProvider = ({ children }) => {
     const [description, setDescription] = useState('Aktuelle Videobeschreibung')
     const [videoUrl, setVideoUrl] = useState('https://www.youtube.com/embed?v=p4dp_wMtfw0')
 
-    useEffect(() => lectionNavigationSetter(), [course])
+    useEffect(() => {
+        lectionNavigationSetter()
+        console.log('ich bin der stresser, sorry')
+    }, [course])
 
     // Get Navigation for courses
     const lectionNavigationSetter = () => {

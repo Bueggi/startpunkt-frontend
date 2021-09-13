@@ -1,11 +1,14 @@
 import { API_URL } from "@/config/index";
+import AuthContext from "@/context/authContext";
 import cookie from 'cookie'
+import { useState } from "react";
 
 export default async (req, res) => {
+
     if (req.method === 'POST') {
         const { identifier, password } = req.body
 
-        const strapi = await fetch(`${API_URL}/auth/local`, {
+        const strapi = await fetch(`https://secure-escarpment-39746.herokuapp.com/auth/local`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
