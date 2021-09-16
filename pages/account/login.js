@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import PageLayout from '@/components/PageLayout'
 import Link from 'next/link'
 
-const login = () => {
+const Login = () => {
     const { login, error } = useContext(AuthContext)
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -118,4 +118,4 @@ const login = () => {
     )
 }
 
-export default login
+export default Login

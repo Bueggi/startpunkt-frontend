@@ -5,7 +5,7 @@ import authContext from '@/context/authContext'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const register = () => {
+const Register = () => {
     const { register, error } = useContext(authContext)
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
@@ -153,5 +153,5 @@ const register = () => {
     )
 }
 
-export default register
+export default Register
 
