@@ -47,7 +47,7 @@ const CoursePage = ({ courseRequested }) => {
                             height="900px"
                             src={videoUrl}
                             title={title}
-                            frameborder="0"
+                            frameBorder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowFullScreen></iframe>
                         {course && title}

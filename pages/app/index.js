@@ -33,8 +33,9 @@ const Dashboard = ({ courses, token, posts, total, page }) => {
 
                                 <h2 className="bg-white opacity-100 justify-self-center text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate mt-12">Willkommen zurück, {user.username}</h2>
                                 <h2 className="bg-white opacity-100 justify-self-center text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate mt-2">Diese Neuigkeiten erwarten dich bei startpunkt</h2>
-                                {posts && posts.length && posts.map(post => {
+                                {posts && posts.length && posts.map((post, i) => {
                                     return <NewsListComponent
+                                        key={i}
                                         title={post.title}
                                         body={post.body}
                                         created={post.created_at}
