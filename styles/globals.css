@@ -5,3 +5,11 @@
 h2 {
 	@apply text-2xl font-bold leading-7 text-gray-900 sm:text-3xl;
 }
+
+.main-background {
+	background-image: url("http://localhost:3000/images/character-working-from-home.svg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: bottom left;
+	background-size: 40%;
+}

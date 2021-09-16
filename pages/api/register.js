@@ -2,10 +2,10 @@ import cookie from 'cookie'
 import { API_URL } from '@/config/index'
 
 export default async (req, res) => {
-    console.log('API URL', API_URL)
     if (req.method === 'POST') {
         const { username, email, password } = req.body
 
+        console.log(username, email, password)
         const strapiRes = await fetch(`https://secure-escarpment-39746.herokuapp.com/auth/local/register`, {
             method: 'POST',
             headers: {
@@ -19,6 +19,7 @@ export default async (req, res) => {
         })
 
         const data = await strapiRes.json()
+        console.log(strapiRes)
 
         if (strapiRes.ok) {
             // Set Cookie
@@ -37,7 +38,7 @@ export default async (req, res) => {
         } else {
             res
                 .status(data.statusCode)
-                .json({ message: data.message[0].messages[0].message })
+                .json({ message: data })
         }
     } else {
         res.setHeader('Allow', ['POST'])

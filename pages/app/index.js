@@ -2,36 +2,23 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import DashboardLayout from '../../components/DashboardLayout'
 import { API_URL } from '../../config/index'
-import CourseDisplayElement from '@/components/CourseDisplayElement'
 import qs from 'qs'
 import { parseCookies } from '@/helpers/index'
 import AuthContext from '@/context/authContext'
 import NewsListComponent from '@/components/NewsListComponent'
+import Pagination from '@/components/Pagination'
 
-const Dashboard = ({ courses, token, posts }) => {
+const Dashboard = ({ courses, token, posts, total, page }) => {
     const { user } = useContext(AuthContext)
     const router = useRouter()
 
     const [loading, setLoading] = useState(true)
 
-
-    useEffect(async () => {
-        setLoading(true)
-
-        // TODO - get all news 
-
-        // TODO - get all courses that the person has subscribed to
-
-
-        setLoading(false)
-    }, [])
-
-
     return (
         <DashboardLayout title={'Alle Kurse'}>
             {!user ? <h1>Not Authorized</h1> :
-                <div className="flex-1 flex items-stretch overflow-y-auto">
-                    <main className="flex-1 overflow-y-auto">
+                <div className="flex-1 flex items-stretch overflow-y-auto pb-12">
+                    <main className="flex-1 overflow-y-auto main-background">
 
                         {/* Primary column */}
                         <section
@@ -43,6 +30,9 @@ const Dashboard = ({ courses, token, posts }) => {
                                 className="sr-only">
                             </h1>
                             <div className="grid justify-center">
+
+                                <h2 className="bg-white opacity-100 justify-self-center text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate mt-12">Willkommen zurück, {user.username}</h2>
+                                <h2 className="bg-white opacity-100 justify-self-center text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate mt-2">Diese Neuigkeiten erwarten dich bei startpunkt</h2>
                                 {posts && posts.length && posts.map(post => {
                                     return <NewsListComponent
                                         title={post.title}
@@ -50,6 +40,7 @@ const Dashboard = ({ courses, token, posts }) => {
                                         created={post.created_at}
                                         image={post.image} />
                                 })}
+                                <Pagination page={page} total={total} />
                             </div>
                         </section>
                     </main>
@@ -61,7 +52,7 @@ const Dashboard = ({ courses, token, posts }) => {
                             {user.courses && user.courses.length ?
                                 user.courses.map(el => el)
                                 :
-                                <h2>Du hast noch keine Kurse in deinem Portfolio</h2>}
+                                <h4>Du hast noch keine Kurse in deinem Portfolio</h4>}
                         </nav>
                     </aside>
                 </div>
@@ -72,10 +63,17 @@ const Dashboard = ({ courses, token, posts }) => {
 
 export default Dashboard
 
-export const getServerSideProps = async ({ req, res }) => {
+export const getServerSideProps = async ({ req, res, query: { page = 1 } }) => {
     const { token } = await parseCookies(req)
 
-    const postReq = await fetch(`${API_URL}news-posteds`, {
+    const maxNews = 5;
+    const start = +page === 1 ? 0 : (+page - 1) * PER_PAGE
+
+    // Fetch total/count
+    const totalRes = await fetch(`${API_URL}/news-posteds/count`)
+    const total = await totalRes.json()
+
+    const postReq = await fetch(`${API_URL}/news-posteds?_limit=${maxNews}&_start=${start}`, {
         method: 'GET',
         headers: {
             Authorization: `Bearer ${token}`
@@ -83,8 +81,6 @@ export const getServerSideProps = async ({ req, res }) => {
     })
 
     const posts = await postReq.json()
-
-    console.log(`${API_URL}news-posteds`, posts)
 
     const conditions = qs.stringify({
         _where:
@@ -99,6 +95,6 @@ export const getServerSideProps = async ({ req, res }) => {
 
 
     return {
-        props: { courses, token, posts }
+        props: { courses, token, posts, total, page }
     }
 }

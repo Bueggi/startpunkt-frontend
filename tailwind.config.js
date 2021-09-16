@@ -14,7 +14,10 @@ module.exports = {
       green: colors.teal,
       ember: colors.ember,
       indigo: colors.indigo,
-      rose: colors.rose
+      rose: colors.rose,
+      teal: colors.teal,
+      cyan: colors.cyan,
+      white: colors.white
     },
     extend: {},
   },
@@ -23,5 +26,7 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/forms'),
+    require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/typography')
   ],
 }
