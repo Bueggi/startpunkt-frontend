@@ -1,4 +1,3 @@
-
 import ReactMarkdown from 'react-markdown'
 import dateFormat from 'dateformat'
 
@@ -69,7 +68,7 @@ export default function NewsListComponent({ title, body, created, image }) {
                         <div className="ml-4 mt-4 flex">
                             <h3 className="flex-1 text-lg leading-6 font-medium text-gray-900">{title}</h3>
                             {difference &&
-                                <span class="inline-flex items-center justify-center mx-8 float-right px-2 py-1 text-xs font-bold leading-none text-indigo-100 bg-indigo-700 rounded">
+                                <span className="inline-flex items-center justify-center mx-8 float-right px-2 py-1 text-xs font-bold leading-none text-indigo-100 bg-indigo-700 rounded">
                                     NEW
                                 </span>}
 
