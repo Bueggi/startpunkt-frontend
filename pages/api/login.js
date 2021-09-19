@@ -3,7 +3,7 @@ import AuthContext from "@/context/authContext";
 import cookie from 'cookie'
 import { useState } from "react";
 
-export default async (req, res) => {
+const login = async (req, res) => {
 
     if (req.method === 'POST') {
         const { identifier, password } = req.body
@@ -41,3 +41,5 @@ export default async (req, res) => {
         res.status(405).json({ message: `Method ${req.method} is not allowed` })
     }
 }
+
+export default login

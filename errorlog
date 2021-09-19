@@ -1,0 +1,105 @@
+./pages/account/login.js
+30:21  Warning: Do not use <img>. Use Image from 'next/image' instead. See https://nextjs.org/docs/messages/no-img-element.  @next/next/no-img-element
+
+./pages/account/register.js
+34:25  Warning: Do not use <img>. Use Image from 'next/image' instead. See https://nextjs.org/docs/messages/no-img-element.  @next/next/no-img-element
+146:17  Warning: Do not use <img>. Use Image from 'next/image' instead. See https://nextjs.org/docs/messages/no-img-element.  @next/next/no-img-element
+
+./pages/api/login.js
+6:1  Warning: Assign arrow function to a variable before exporting as module default  import/no-anonymous-default-export
+
+./pages/api/logout.js
+4:1  Warning: Assign arrow function to a variable before exporting as module default  import/no-anonymous-default-export
+
+./pages/api/register.js
+4:1  Warning: Assign arrow function to a variable before exporting as module default  import/no-anonymous-default-export
+
+./pages/api/user.js
+4:1  Warning: Assign arrow function to a variable before exporting as module default  import/no-anonymous-default-export
+
+./pages/app/[slug]/index.js
+24:8  Warning: React Hook useEffect has missing dependencies: 'courseRequested' and 'setCourse'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+
+./pages/impressum.js
+93:100  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+93:101  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+93:108  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+93:109  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+93:143  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+93:144  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+93:152  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+93:153  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+94:101  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+94:102  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+94:109  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+94:110  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+94:142  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+94:143  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+94:151  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+94:152  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+94:313  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+94:314  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+94:326  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+94:327  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+94:1463  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+94:1464  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+94:1490  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+94:1491  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+94:1531  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+94:1532  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+94:1540  Error: `>` can be escaped with `&gt;`.  react/no-unescaped-entities
+94:1559  Error: `>` can be escaped with `&gt;`.  react/no-unescaped-entities
+94:1573  Error: `>` can be escaped with `&gt;`.  react/no-unescaped-entities
+94:1586  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+94:1587  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+94:1607  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+94:1608  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+94:1616  Error: `>` can be escaped with `&gt;`.  react/no-unescaped-entities
+94:1632  Error: `>` can be escaped with `&gt;`.  react/no-unescaped-entities
+94:1646  Error: `>` can be escaped with `&gt;`.  react/no-unescaped-entities
+94:1655  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+94:1656  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+
+./components/CourseDisplayElement.js
+9:17  Warning: Do not use <img>. Use Image from 'next/image' instead. See https://nextjs.org/docs/messages/no-img-element.  @next/next/no-img-element
+
+./components/DashboardLayout.js
+47:25  Warning: Do not use <img>. Use Image from 'next/image' instead. See https://nextjs.org/docs/messages/no-img-element.  @next/next/no-img-element
+122:45  Warning: Do not use <img>. Use Image from 'next/image' instead. See https://nextjs.org/docs/messages/no-img-element.  @next/next/no-img-element
+
+./components/MobileMenu.js
+59:37  Warning: Do not use <img>. Use Image from 'next/image' instead. See https://nextjs.org/docs/messages/no-img-element.  @next/next/no-img-element
+
+./components/NewsListComponent.js
+72:39  Error: Unknown property 'class' found, use 'className' instead  react/no-unknown-property
+
+./components/startseite/CTA.js
+28:25  Warning: Do not use <img>. Use Image from 'next/image' instead. See https://nextjs.org/docs/messages/no-img-element.  @next/next/no-img-element
+
+./components/startseite/Footer.js
+51:251  Error: Unknown property 'stop-color' found, use 'stopColor' instead  react/no-unknown-property
+51:291  Error: Unknown property 'stop-color' found, use 'stopColor' instead  react/no-unknown-property
+53:64  Error: Unknown property 'class' found, use 'className' instead  react/no-unknown-property
+54:62  Error: Unknown property 'class' found, use 'className' instead  react/no-unknown-property
+70:25  Warning: Do not use <img>. Use Image from 'next/image' instead. See https://nextjs.org/docs/messages/no-img-element.  @next/next/no-img-element
+
+./components/startseite/Header.js
+88:25  Error: Do not use the HTML <a> tag to navigate to /. Use Link from 'next/link' instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages.  @next/next/no-html-link-for-pages
+90:29  Warning: Do not use <img>. Use Image from 'next/image' instead. See https://nextjs.org/docs/messages/no-img-element.  @next/next/no-img-element
+148:37  Warning: Do not use <img>. Use Image from 'next/image' instead. See https://nextjs.org/docs/messages/no-img-element.  @next/next/no-img-element
+
+./components/startseite/HeroSection.js
+35:17  Warning: Do not use <img>. Use Image from 'next/image' instead. See https://nextjs.org/docs/messages/no-img-element.  @next/next/no-img-element
+
+./components/startseite/Konstantin.js
+105:55  Error: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`.  react/no-unescaped-entities
+105:66  Error: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`.  react/no-unescaped-entities
+106:65  Error: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`.  react/no-unescaped-entities
+106:267  Error: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`.  react/no-unescaped-entities
+
+./components/startseite/Qualifier.js
+33:21  Warning: Do not use <img>. Use Image from 'next/image' instead. See https://nextjs.org/docs/messages/no-img-element.  @next/next/no-img-element
+69:49  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+
+./components/startseite/ScreenshotSection.js
+18:21  Warning: Do not use <img>. Use Image from 'next/image' instead. See https://nextjs.org/docs/messages/no-img-element.  @next/next/no-img-element

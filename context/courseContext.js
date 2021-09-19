@@ -15,7 +15,6 @@ export const CourseProvider = ({ children }) => {
 
     useEffect(() => {
         lectionNavigationSetter()
-        console.log('ich bin der stresser, sorry')
     }, [course])
 
     // Get Navigation for courses

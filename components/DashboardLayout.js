@@ -1,31 +1,26 @@
 import { Fragment, useState, useContext } from 'react'
+import { useRouter } from 'next/router'
 import AuthContext from '@/context/authContext'
-import { Dialog, Menu, Transition } from '@headlessui/react'
+import { Menu, Transition } from '@headlessui/react'
 import {
-    CogIcon,
     CollectionIcon,
     HomeIcon,
     MenuAlt2Icon,
-    PhotographIcon,
     PlusIcon,
-    UserGroupIcon,
     ViewGridIcon,
-    XIcon,
 } from '@heroicons/react/outline'
 import { SearchIcon } from '@heroicons/react/solid'
 import MobileMenu from './MobileMenu'
+import Link from 'next/link'
+
 
 const sidebarNavigation = [
-    { name: 'Home', href: '#', icon: HomeIcon, current: false },
-    { name: 'All Files', href: '#', icon: ViewGridIcon, current: false },
-    { name: 'Photos', href: '#', icon: PhotographIcon, current: true },
-    { name: 'Shared', href: '#', icon: UserGroupIcon, current: false },
-    { name: 'Albums', href: '#', icon: CollectionIcon, current: false },
-    { name: 'Settings', href: '#', icon: CogIcon, current: false },
+    { name: 'Home', href: '/app', icon: HomeIcon, current: true },
+    { name: 'Alle Kurse', href: '/app/courses', icon: ViewGridIcon, current: false },
+    { name: 'Meine Kurse', href: '/app/myCourses', icon: CollectionIcon, current: false },
 ]
 const userNavigation = [
-    { name: 'Your Profile', href: '#' },
-    { name: 'Sign out', href: '#' },
+    { name: 'Profil', href: '/profile' },
 ]
 
 function classNames(...classes) {
@@ -36,8 +31,9 @@ export default function DashboardLayout({ children }) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const [mobileCourseMenu, setMobileCourseMenu] = useState([])
 
-    const { user, logout } = useContext(AuthContext)
+    const router = useRouter()
 
+    const { user, logout } = useContext(AuthContext)
     return (
         <div className="h-screen bg-gray-50 flex overflow-hidden">
             {/* Narrow sidebar */}
@@ -51,26 +47,37 @@ export default function DashboardLayout({ children }) {
                         />
                     </div>
                     <div className="flex-1 mt-6 w-full px-2 space-y-1">
-                        {sidebarNavigation.map((item) => (
-                            <a
-                                key={item.name}
-                                href={item.href}
-                                className={classNames(
-                                    item.current ? 'bg-green-800 text-white' : 'text-green-100 hover:bg-green-800 hover:text-white',
-                                    'group w-full p-3 rounded-md flex flex-col items-center text-xs font-medium'
-                                )}
-                                aria-current={item.current ? 'page' : undefined}
-                            >
-                                <item.icon
-                                    className={classNames(
-                                        item.current ? 'text-white' : 'text-green-300 group-hover:text-white',
-                                        'h-6 w-6'
-                                    )}
-                                    aria-hidden="true"
-                                />
-                                <span className="mt-2">{item.name}</span>
-                            </a>
-                        ))}
+                        {sidebarNavigation.map((item, i) => {
+                            if (router.pathname === item.href) {
+                                item.current = true
+                            }
+                            else {
+                                item.current = false
+                            }
+
+                            return (
+                                <Link href={item.href} key={i}>
+                                    <a
+                                        key={item.name}
+                                        href={item.href}
+                                        className={classNames(
+                                            item.current ? 'bg-green-800 text-white' : 'text-green-100 hover:bg-green-800 hover:text-white',
+                                            'group w-full p-3 rounded-md flex flex-col items-center text-xs font-medium'
+                                        )}
+                                        aria-current={item.current ? 'page' : undefined}
+                                    >
+                                        <item.icon
+                                            className={classNames(
+                                                item.current ? 'text-white' : 'text-green-300 group-hover:text-white',
+                                                'h-6 w-6'
+                                            )}
+                                            aria-hidden="true"
+                                        />
+                                        <span className="mt-2">{item.name}</span>
+                                    </a>
+                                </Link>
+                            )
+                        })}
                     </div>
                 </div>
             </div>
@@ -90,7 +97,7 @@ export default function DashboardLayout({ children }) {
                             className="border-r border-gray-200 px-4 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500 md:hidden"
                             onClick={() => setMobileMenuOpen(true)}
                         >
-                            <span className="sr-only">Open sidebar</span>
+                            <span className="sr-only">Sidebar öffnen</span>
                             <MenuAlt2Icon className="h-6 w-6" aria-hidden="true" />
                         </button>
                         <div className="flex-1 flex justify-between px-4 sm:px-6">
@@ -151,6 +158,11 @@ export default function DashboardLayout({ children }) {
                                                     )}
                                                 </Menu.Item>
                                             ))}
+                                            <a
+                                                onClick={() => logout()}
+                                                className='block px-4 py-2 text-sm text-gray-700'>
+                                                Logout
+                                            </a>
                                         </Menu.Items>
 
                                     </Transition>

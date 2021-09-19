@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react'
+import Image from 'next/image'
 import { useContext, useEffect } from 'react'
 import authContext from '@/context/authContext'
 import { ToastContainer, toast } from 'react-toastify';
@@ -33,7 +34,7 @@ const Register = () => {
                     <div>
                         <img
                             className="h-12 w-auto"
-                            src="https://tailwindui.com/img/logos/workflow-mark-green-600.svg"
+                            src="/images/startpunkt Logo.png"
                             alt="Workflow"
                         />
                         <h2 className="mt-6 text-3xl font-extrabold text-gray-900">Registriere dich bei startpunkt.de</h2>
@@ -61,7 +62,7 @@ const Register = () => {
                                 </div>
                                 <div>
                                     <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                                        Email address
+                                        Email
                                     </label>
                                     <div className="mt-1">
                                         <input
@@ -78,7 +79,7 @@ const Register = () => {
 
                                 <div className="space-y-1">
                                     <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-                                        Password
+                                        Passwort
                                     </label>
                                     <div className="mt-1">
                                         <input
@@ -94,7 +95,7 @@ const Register = () => {
                                 </div>
                                 <div className="space-y-1">
                                     <label htmlFor="password2" className="block text-sm font-medium text-gray-700">
-                                        Bestaetige dein Passwort
+                                        Bestätige dein Passwort
                                     </label>
                                     <div className="mt-1">
                                         <input
@@ -118,13 +119,13 @@ const Register = () => {
                                             className="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded"
                                         />
                                         <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
-                                            Remember me
+                                            Erinner dich an mich
                                         </label>
                                     </div>
 
                                     <div className="text-sm">
                                         <a href="#" className="font-medium text-green-600 hover:text-green-500">
-                                            Forgot your password?
+                                            Passwort vergessen?
                                         </a>
                                     </div>
                                 </div>
@@ -134,7 +135,7 @@ const Register = () => {
                                         type="submit"
                                         className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
                                     >
-                                        Sign in
+                                        Registrieren
                                     </button>
                                 </div>
                             </form>
@@ -143,10 +144,11 @@ const Register = () => {
                 </div>
             </div>
             <div className="hidden lg:block relative w-0 flex-1">
-                <img
+                <Image
                     className="absolute inset-0 h-full w-full object-cover"
-                    src="https://images.unsplash.com/photo-1505904267569-f02eaeb45a4c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1908&q=80"
+                    src="/images/young woman.jpg"
                     alt=""
+                    layout='fill'
                 />
             </div>
         </div>

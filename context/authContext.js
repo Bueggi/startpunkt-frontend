@@ -50,7 +50,7 @@ export const AuthProvider = ({ children }) => {
 
         if (res.ok) {
             setUser(data.user)
-            router.push('/app')
+            router.push('/')
         } else {
             setError(data.message)
             setError(null)
@@ -73,12 +73,12 @@ export const AuthProvider = ({ children }) => {
     const checkUserLoggedIn = async (user) => {
         const res = await fetch(`${NEXT_CLIENT_URL}/api/user`)
         const data = await res.json()
-        console.log('data in checkUserLoggedIn', data)
 
         if (res.ok) {
             setUser(data.user)
         } else {
             setUser(null)
+            if (router.pathname.includes('/app')) { router.push('/account/login') }
         }
     }
 
