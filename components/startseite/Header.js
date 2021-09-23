@@ -4,8 +4,6 @@ import {
     ChartBarIcon,
     CursorClickIcon,
     MenuIcon,
-    PhoneIcon,
-    PlayIcon,
     RefreshIcon,
     ShieldCheckIcon,
     SupportIcon,
@@ -13,10 +11,9 @@ import {
     XIcon,
 } from '@heroicons/react/outline'
 import { Popover, Transition } from '@headlessui/react'
-
-import { ChevronDownIcon } from '@heroicons/react/solid'
-import { Fragment } from 'react'
+import { Fragment, useState } from 'react'
 import Link from 'next/link'
+import AuthContext from '@/context/authContext'
 
 const solutions = [
     {
@@ -45,10 +42,7 @@ const solutions = [
         icon: RefreshIcon,
     },
 ]
-const callsToAction = [
-    { name: 'Watch Demo', href: '#', icon: PlayIcon },
-    { name: 'Contact Sales', href: '#', icon: PhoneIcon },
-]
+
 const resources = [
     {
         name: 'Help Center',
@@ -70,30 +64,23 @@ const resources = [
     },
     { name: 'Security', description: 'Understand how we take your privacy seriously.', href: '#', icon: ShieldCheckIcon },
 ]
-const recentPosts = [
-    { id: 1, name: 'Boost your conversion rate', href: '#' },
-    { id: 2, name: 'How to use search engine optimization to drive traffic to your site', href: '#' },
-    { id: 3, name: 'Improve your customer experience', href: '#' },
-]
-
-function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
-}
 
 export default function Example() {
+    const { user, logout } = useState(AuthContext)
+
     return (
         <Popover className="relative bg-white">
             <div className="mx-auto px-4 sm:px-24">
                 <div className="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
                     <div className="flex justify-start lg:w-0 lg:flex-1">
                         <Link href="/">
-                        <a>
-                            <span className="sr-only">startpunkt Logo</span>
-                            <img
-                                className="h-8 w-auto sm:h-10"
-                                src="/images/startpunkt Logo.png"
-                                alt=""
-                            />
+                            <a>
+                                <span className="sr-only">startpunkt Logo</span>
+                                <img
+                                    className="h-8 w-auto sm:h-10"
+                                    src="/images/startpunkt Logo.png"
+                                    alt=""
+                                />
                             </a>
                         </Link>
                     </div>
@@ -117,20 +104,27 @@ export default function Example() {
 
 
                     </Popover.Group>
-                    <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-                        <Link href='/account/login'>
-                            <a className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
-                                Einloggen
+                    {user ?
+                        <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+                            <Link href='/account/login'>
+                                <a className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
+                                    Einloggen
+                                </a>
+                            </Link>
+                            <Link href='/account/register'>
+                                <a
+                                    className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-600 hover:bg-green-700"
+                                >
+                                    Registrieren
+                                </a>
+                            </Link>
+                        </div>
+                        :
+                        <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+                            <a className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900" onClick={() => logout()}>
+                                Logout
                             </a>
-                        </Link>
-                        <Link href='/account/register'>
-                            <a
-                                className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-600 hover:bg-green-700"
-                            >
-                                Registrieren
-                            </a>
-                        </Link>
-                    </div>
+                        </div>}
                 </div>
             </div>
 
