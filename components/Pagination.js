@@ -6,6 +6,7 @@ export default function Pagination({ total, page }) {
     const [activePage, setActivePage] = useState(page)
     const maxPerPage = 5
     const pages = Math.ceil(total / maxPerPage)
+    console.log('/// PAGES in PAGINATION', pages)
     const pagesArray = pages === 0 ? 1 : Array.from(Array(pages).keys())
 
     return (
