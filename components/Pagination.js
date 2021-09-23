@@ -1,13 +1,12 @@
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid'
 import { useState } from 'react'
 import Link from 'next/link'
-import NEXT_CLIENT_URL from '@/config/index'
 
 export default function Pagination({ total, page }) {
     const [activePage, setActivePage] = useState(page)
     const maxPerPage = 5
     const pages = Math.ceil(total / maxPerPage)
-    const pagesArray = Array.from(Array(pages).keys())
+    const pagesArray = pages === 0 ? 1 : Array.from(Array(pages).keys())
 
     return (
         <div className="mt-8 mx-24 bg-white px-4 py-3 flex items-center justify-self-end sm:px-6">

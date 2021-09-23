@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { API_URL, NEXT_CLIENT_URL } from '../config/index'
+import { API_URL, NEXT_PUBLIC_CLIENT_URL } from '../config/index'
 import Link from 'next/link'
 import AuthContext from '@/context/authContext'
 
@@ -23,7 +23,7 @@ const CourseDisplayElement = ({ course }) => {
                     </div>
                     <p className="mt-1 text-gray-500 text-sm truncate">{course.description}</p>
                     <div>
-                        <Link href={`${NEXT_CLIENT_URL}/app/${course.slug}`}>
+                        <Link href={`${NEXT_PUBLIC_CLIENT_URL}/app/${course.slug}`}>
                             Hier den Kurs anschauen
                         </Link>
                     </div>
