@@ -59,7 +59,7 @@ export default function NewsListComponent({ title, body, created, image }) {
     }
 
     return (
-        <div className="md:w-1/2 justify-self-end md:mr-24 opacity-100 overflow-hidden rounded-lg divide-y divide-gray-200 shadow-2xl px-auto mt-12 border bg-gray-50">
+        <div className="w-11/12 xl:w-1/2 justify-self-end xl:mr-24 mx-6 opacity-100 overflow-hidden rounded-lg divide-y divide-gray-200 shadow-2xl px-auto mt-12 border bg-gray-50">
             <div className="px-4 py-5 sm:px-6 bg-white">
                 {/* Content goes here */}
                 {/* We use less vertical padding on card headers on desktop than on body sections */}

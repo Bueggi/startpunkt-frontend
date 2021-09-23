@@ -10,7 +10,7 @@ export default function Pagination({ total, page }) {
     const pagesArray = Array.from(Array(pages).keys())
 
     return (
-        <div className="bg-white px-4 py-3 flex items-center justify-self-end sm:px-6">
+        <div className="mt-8 mx-24 bg-white px-4 py-3 flex items-center justify-self-end sm:px-6">
 
             <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
                 <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">

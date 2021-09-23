@@ -50,7 +50,7 @@ export const AuthProvider = ({ children }) => {
 
         if (res.ok) {
             setUser(data.user)
-            router.push('/')
+            router.push('/app')
         } else {
             setError(data.message)
             setError(null)
