@@ -41,7 +41,7 @@ const Dashboard = ({ courses, token, posts, total, page }) => {
                                         created={post.created_at}
                                         image={post.image} />
                                 })}
-                                <Pagination page={page} total={total} />
+                                {/* <Pagination page={page} total={total} /> */}
                             </div>
                         </section>
                     </main>
