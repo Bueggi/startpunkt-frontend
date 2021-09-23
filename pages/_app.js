@@ -2,11 +2,11 @@ import '../styles/globals.css'
 import { CourseProvider } from '../context/courseContext'
 import { AuthProvider } from '@/context/authContext'
 function MyApp({ Component, pageProps }) {
-  return <AuthProvider>
+  return (<AuthProvider>
     <CourseProvider>
       <Component {...pageProps} />
     </CourseProvider>
-  </AuthProvider>
+  </AuthProvider>)
 }
 
 export default MyApp
