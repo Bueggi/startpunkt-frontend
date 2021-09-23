@@ -11,7 +11,7 @@ import {
     XIcon,
 } from '@heroicons/react/outline'
 import { Popover, Transition } from '@headlessui/react'
-import { Fragment, useState } from 'react'
+import { Fragment, useContext } from 'react'
 import Link from 'next/link'
 import AuthContext from '@/context/authContext'
 
@@ -66,7 +66,7 @@ const resources = [
 ]
 
 export default function Example() {
-    const { user, logout } = useState(AuthContext)
+    const { user, logout } = useContext(AuthContext)
 
     return (
         <Popover className="relative bg-white">
@@ -121,9 +121,11 @@ export default function Example() {
                         </div>
                         :
                         <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-                            <a className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900" onClick={() => logout()}>
+                            <button
+                                className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
+                                onClick={() => logout()}>
                                 Logout
-                            </a>
+                            </button>
                             <Link href='/app'>
                                 <a
                                     className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-600 hover:bg-green-700"
