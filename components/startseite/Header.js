@@ -67,6 +67,7 @@ const resources = [
 
 export default function Example() {
     const { user, logout } = useContext(AuthContext)
+    console.log(user)
 
     return (
         <Popover className="relative bg-white">
@@ -104,7 +105,7 @@ export default function Example() {
 
 
                     </Popover.Group>
-                    {user ?
+                    {!user ?
                         <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
                             <Link href='/account/login'>
                                 <a className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
